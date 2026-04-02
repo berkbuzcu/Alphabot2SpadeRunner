@@ -10,7 +10,7 @@ services:
       - .:/app
     network_mode: "host"
     environment:
-      - XMPP_JID=client@isc-coordinator
+      - XMPP_JID=client@isc-coordinator.lan
       - XMPP_PASSWORD=plsnohack 
       - ROBOT_RECIPIENT=alpha-pi-zero-agent@prosody
       - ROBOT_INSTRUCTIONS=forward,backward,left,right,stop
