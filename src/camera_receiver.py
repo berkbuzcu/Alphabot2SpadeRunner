@@ -10,7 +10,7 @@ class ReceiverAgent(agent.Agent):
     class RequestPhotoBehaviour(behaviour.OneShotBehaviour):
         async def run(self):
             # Create a message to request a photo
-            msg = Message(to="camera_agent@prosody")  # Replace with the actual JID of the camera agent
+            msg = Message(to="camera_agent@isc-coordinator.lan")  # Replace with the actual JID of the camera agent
             msg.set_metadata("performative", "request")
             msg.body = "Requesting photo"
             
@@ -44,7 +44,7 @@ class ReceiverAgent(agent.Agent):
     async def setup(self):
         print(f"{self.jid} is ready.")
         self.add_behaviour(self.RequestPhotoBehaviour())
-        self.add_behaviour(self.ReceivePhotoBehaviour())
+        # self.add_behaviour(self.ReceivePhotoBehaviour())
 
 async def main():
     xmpp_server = os.getenv("XMPP_SERVER", "localhost")
